@@ -2,14 +2,21 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const formFields = [
+interface ContactFormState {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+}
+
+const formFields: { id: keyof ContactFormState; label: string; type: string; placeholder: string }[] = [
     { id: 'name', label: 'Full Name', type: 'text', placeholder: 'John Doe' },
     { id: 'email', label: 'Email Address', type: 'email', placeholder: 'john@example.com' },
     { id: 'subject', label: 'Subject', type: 'text', placeholder: 'How can we help?' },
 ];
 export default function ContactPage() {
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<ContactFormState>({
         name: '',
         email: '',
         subject: '',
@@ -26,7 +33,7 @@ export default function ContactPage() {
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.id]: e.target.value });
+        setFormData({ ...formData, [e.target.id as keyof ContactFormState]: e.target.value });
     };
 
     return (
@@ -72,7 +79,7 @@ export default function ContactPage() {
                                         required
                                         type={field.type}
                                         id={field.id}
-                                        value={(formData as any)[field.id]}
+                                        value={formData[field.id]}
                                         onChange={handleChange}
                                         placeholder={field.placeholder}
                                         className="w-full px-4 py-3 rounded-lg bg-gray-50  border border-gray-200  focus:ring-2 focus:ring-blue-500 outline-none transition-all "

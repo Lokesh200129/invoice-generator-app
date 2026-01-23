@@ -23,9 +23,9 @@ export const AddressSection = ({ title, prefix, register }: AddressSectionProps)
                     placeholder={`Enter ${title} Email`}
                     {...register(`${prefix}Email` as keyof formInput)}
                 />
-                <Input
-                    type="text"
-                    placeholder={`Enter ${title} Address`}
+                <textarea
+                    className="w-full px-4 py-2 border border-gray-400 rounded-lg "
+                    placeholder={`Enter ${title} Address (street, city, state, PIN, country)`}
                     {...register(`${prefix}Address` as keyof formInput)}
                 />
             </div>

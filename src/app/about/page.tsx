@@ -14,7 +14,7 @@ const aboutContent = {
         description: "At Easy Invoice, we believe that creating professional invoices should be straightforward, fast, and accessible to everyone. We've built a powerful yet incredibly simple tool designed for freelancers, small businesses, and entrepreneurs who want to spend less time on admin and more time on growth.",
         callToAction: {
             text: "Start Creating Invoices Now",
-            href: "/",
+            href: "/invoice-generator",
         },
     },
     mission: {
@@ -70,17 +70,17 @@ const aboutContent = {
         heading: "Ready to Simplify Your Invoicing?",
         subheading: "Join thousands of satisfied users who trust Easy Invoice for their billing needs.",
         buttonText: "Create Your First Invoice",
-        buttonHref: "/",
+        buttonHref: "/invoice-generator",
     }
 };
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-            {/* Hero Section */}
-            <section className="bg-linear-to-r from-blue-600 to-indigo-700 dark:from-blue-800 dark:to-indigo-900 text-white py-20 md:py-28 px-4 text-center">
+        <div className="min-h-screen bg-slate-50 text-gray-800">
+            {/* Hero Section - Soft Blue/Indigo Gradient */}
+            <section className="bg-linear-to-br from-blue-500 via-indigo-600 to-indigo-700 text-white py-20 md:py-28 px-4 text-center">
                 <div className="container mx-auto max-w-4xl">
-                    <h1 className="text-2xl md:text-4xl font-extrabold mb-4 leading-tight">
+                    <h1 className="text-2xl md:text-4xl font-extrabold mb-4 leading-tight drop-shadow-sm">
                         {aboutContent.hero.heading}
                     </h1>
                     <p className="text-xl md:text-2xl font-light mb-6 opacity-90">
@@ -89,72 +89,74 @@ export default function AboutPage() {
                     <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-80">
                         {aboutContent.hero.description}
                     </p>
-                    <Link href={aboutContent.hero.callToAction.href} className="inline-block bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all transform hover:scale-105">
+                    <Link href={aboutContent.hero.callToAction.href} className="inline-block bg-white text-indigo-700 hover:bg-blue-50 px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all transform hover:scale-105">
                         {aboutContent.hero.callToAction.text}
                     </Link>
                 </div>
             </section>
 
-            {/* Our Mission Section */}
-            <section className="py-16 md:py-24 px-4">
+            {/* Our Mission Section - Light Blue Tint */}
+            <section className="py-16 md:py-24 px-4 bg-blue-50/40">
                 <div className="container mx-auto max-w-6xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900">
                         {aboutContent.mission.heading}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                         {aboutContent.mission.points.map((point, index) => (
-                            <div key={index} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                                <div className="text-5xl mb-4 text-blue-500">{point.icon}</div>
-                                <h3 className="text-xl font-semibold mb-3 dark:text-white">{point.title}</h3>
-                                <p className="text-gray-600 dark:text-gray-400">{point.description}</p>
+                            <div key={index} className="bg-white p-8 rounded-2xl shadow-sm border border-blue-100 hover:shadow-md transition-all duration-300 transform hover:-translate-y-2">
+                                <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100/50 text-4xl mb-6 text-blue-600">
+                                    {point.icon}
+                                </div>
+                                <h3 className="text-xl font-semibold mb-3 text-slate-800">{point.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">{point.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Our Core Values Section */}
-            <section className="bg-gray-100 dark:bg-gray-800 py-16 md:py-24 px-4">
+            {/* Our Core Values Section - Soft Indigo subtle background */}
+            <section className="bg-white py-16 md:py-24 px-4">
                 <div className="container mx-auto max-w-6xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900">
                         {aboutContent.values.heading}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {aboutContent.values.items.map((value, index) => (
-                            <div key={index} className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 className="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">{value.title}</h3>
-                                <p className="text-gray-600 dark:text-gray-300 text-sm">{value.description}</p>
+                            <div key={index} className="bg-indigo-50/30 p-6 rounded-xl border border-indigo-100 hover:bg-indigo-50 transition-colors">
+                                <h3 className="text-lg font-semibold mb-2 text-indigo-700">{value.title}</h3>
+                                <p className="text-gray-600 text-sm">{value.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Behind Easy Invoice Section */}
-            <section className="py-16 md:py-24 px-4 text-center">
+            {/* Behind the Project Section - Neutral Soft Gray */}
+            <section className="bg-slate-50 py-16 md:py-24 px-4 text-center">
                 <div className="container mx-auto max-w-3xl">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
                         {aboutContent.team.heading}
                     </h2>
-                    <p className="text-lg md:text-xl mb-8 text-gray-700 dark:text-gray-300">
+                    <p className="text-lg md:text-xl mb-8 text-gray-600">
                         {aboutContent.team.description}
                     </p>
-                    <Link href={aboutContent.team.callToAction.href} className="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all transform hover:scale-105">
+                    <Link href={aboutContent.team.callToAction.href} className="inline-block bg-indigo-600 text-white hover:bg-indigo-700 px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all transform hover:scale-105">
                         {aboutContent.team.callToAction.text}
                     </Link>
                 </div>
             </section>
 
-            {/* Bottom CTA */}
-            <section className="bg-white py-16 md:py-20 px-4 text-center">
+            {/* Bottom CTA - Bright White with soft shadow */}
+            <section className="bg-white py-16 md:py-20 px-4 text-center border-t border-slate-100">
                 <div className="container mx-auto max-w-4xl">
-                    <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight text-slate-900">
                         {aboutContent.ctaBottom.heading}
                     </h2>
-                    <p className="text-xl text-black md:text-2xl font-light mb-8 opacity-90">
+                    <p className="text-xl text-slate-500 md:text-2xl font-light mb-8">
                         {aboutContent.ctaBottom.subheading}
                     </p>
-                    <Link href={aboutContent.ctaBottom.buttonHref} className="inline-block bg-white text-blue-700 hover:bg-gray-100 px-10 py-5 rounded-full text-xl font-bold shadow-xl transition-all transform hover:scale-105">
+                    <Link href={aboutContent.ctaBottom.buttonHref} className="inline-block bg-indigo-600 text-white hover:bg-indigo-700 px-10 py-5 rounded-full text-xl font-bold shadow-xl transition-all transform hover:scale-105">
                         {aboutContent.ctaBottom.buttonText}
                     </Link>
                 </div>

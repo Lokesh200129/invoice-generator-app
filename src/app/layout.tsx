@@ -1,20 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import Navbar from "../component/ui/Navbar";
 import Footer from "../component/ui/Footer";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Montserrat } from 'next/font/google'
+
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: "400",
+  display: 'swap'
+});
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ezzyinvoice-generator-app.vercel.app/"),
   title: {
     default: "Easy Invoice",
     template: "%s | Easy Invoice"
@@ -27,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://easyinvoice.com",
+    url: "https://ezzyinvoice-generator-app.vercel.app/",
     siteName: "Easy Invoice",
     images: [
       {
@@ -47,9 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-      >
+      <body className={`${montserrat.variable} ${geistMono.variable} antialiased `}>
         <Navbar />
         <ToastContainer
           position="top-right"
@@ -57,9 +60,8 @@ export default function RootLayout({
           theme="colored"
           draggable
         />
-        <div className="container flex-1 mx-auto min-h-dvh ">
+        <div className="container flex-1 mx-auto min-h-screen">
           {children}
-
         </div>
         <Footer />
       </body>

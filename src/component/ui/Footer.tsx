@@ -31,10 +31,9 @@ export default function Footer() {
         setEmail("")
         setTimeout(() => setIsSubmitting(false), 5000)
     };
-
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="bg-gray-900 text-white  border-t border-gray-800 mt-12">
+        <footer className="bg-gray-900 text-white  border-t border-gray-800 mt-12 ">
             <div className="container mx-auto px-8 pt-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <div className="space-y-6">

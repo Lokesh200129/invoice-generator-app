@@ -5,7 +5,7 @@ interface data extends React.InputHTMLAttributes<HTMLInputElement> {
 const Input = ({ className, ...props }: data) => {
     return (
         <div>
-            <input {...props} className={`${className || ''} border border-gray-700 px-4 py-2 rounded-lg w-full`} />
+            <input {...props} className={`${className || ''} border border-gray-400 px-4 py-2 rounded-lg w-full`} />
         </div>
     )
 }

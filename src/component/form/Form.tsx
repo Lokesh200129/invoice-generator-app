@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import { formInput } from "@/src/types/global";
-import { useInvoiceStore } from "@/src/store/invoiceData";
+import { useInvoiceStore } from "@/src/store/invoiceStore";
 // Sub-components
 import { LogoUpload } from "./LogoUpload";
 import { InvoiceDetails } from "./InvoiceDetails";
@@ -44,7 +44,7 @@ const Form = () => {
         reset();
     };
     return (
-        <div className='bg-white p-6 w-full rounded-xl shadow-lg border border-gray-100 h-full overflow-y-auto no-print'>
+        <div className='bg-white p-6 w-full rounded-xl shadow-lg border border-gray-300 h-full overflow-y-auto no-print'>
             <h1 className='text-2xl font-bold text-gray-800 mb-6'>Edit Invoice Details</h1>
             <form className='space-y-6'>
                 <LogoUpload

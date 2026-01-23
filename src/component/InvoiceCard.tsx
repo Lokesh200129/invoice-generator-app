@@ -1,9 +1,9 @@
 "use client"
-import { useInvoiceStore } from '../store/invoiceData';
+import { useInvoiceStore } from '../store/invoiceStore';
 import { invoiceData } from '../utils/data';
 import Image from 'next/image';
 import { currencyFormat } from '../utils/currencyFormat';
-import { useEffect, useRef, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 
 const todayDate = () => {
     const date = new Date().toISOString().split('T')[0]
@@ -13,13 +13,6 @@ const todayDate = () => {
 
 const InvoiceCard = () => {
     const invoiceRef = useRef<HTMLDivElement>(null);
-    const setInvoiceRef = useInvoiceStore((state) => state.setInvoiceRef);
-
-    useEffect(() => {
-        if (invoiceRef.current) {
-            setInvoiceRef(invoiceRef.current);
-        }
-    }, [setInvoiceRef]);
 
     const invoice = useInvoiceStore((state) => state.invoice)
     const { companyName, companyAddress, companyEmail, invoiceNumber, clientName, clientEmail, clientAddress, items, tax = 0, currency, notes, companyLogo, discount = 0, isSignInclude } = invoice || invoiceData;
@@ -43,7 +36,7 @@ const InvoiceCard = () => {
     const tableHead = ['Description', 'QTY', 'Price', 'Total']
 
     return (
-        <div ref={invoiceRef} className='print-container p-8 w-full rounded-xl shadow-lg border border-gray-300 h-auto  font-sans capitalize sticky top-15  '>
+        <div ref={invoiceRef} className='print-container p-8 w-full rounded-xl shadow-lg border border-gray-300 h-auto  capitalize sticky top-15  '>
             <div className='flex justify-between items-start mb-10 pb-4 border-b-2 border-gray-400'>
                 <div >
                     <div className='w-20 h-20   rounded-lg flex items-center justify-center mb-4 text-gray-400'>
@@ -89,8 +82,11 @@ const InvoiceCard = () => {
                         {items && items.length > 0 ? items.map((item, idx) => (
                             <tr key={idx} className='border-b border-gray-200 '>
                                 <td className='py-4 text-sm text-gray-700 font-medium text-wrap '>{item.description === "" ? "Item" : item.description}</td>
+
                                 <td className='text-left py-4 text-sm text-gray-700'>{(item.quantity) > 0 ? item.quantity : "-"}</td>
+
                                 <td className='text-left py-4 text-sm text-gray-700'> {item.price > 0 ? `${currency} ${currencyFormat((item.price))}` : "-"}</td>
+
                                 <td className='text-left py-4 text-sm font-semibold text-gray-800'> {(item.quantity > 0 && item.price > 0) ? `${currency} ${currencyFormat((item.quantity * item.price))}` : "-"}</td>
                             </tr>
                         )) : (

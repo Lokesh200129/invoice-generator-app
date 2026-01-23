@@ -5,8 +5,9 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import logo from '@/public/og-image.png'
 const navLinks = [
-    { name: 'Invoice Generator', href: '/' },
+    { name: 'Invoice Generator', href: '/invoice-generator' },
     { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
 
 ];
 
@@ -17,7 +18,7 @@ export default function Navbar() {
     const isActive = (href: string) => pathname === href;
 
     return (
-        <nav className="w-full shadow-md bg-white sticky top-0 z-50">
+        <nav className=" shadow-md bg-white sticky top-0 z-50">
             <div className="w-full container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <Link href="/" className="flex items-center justify-center gap-2">
@@ -30,8 +31,8 @@ export default function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={`pb-1 transition-all duration-200 ${isActive(link.href)
-                                    ? 'text-blue-600 border-b-2 border-blue-600 font-medium'
-                                    : 'text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-600'
+                                    ? 'text-blue-600  font-medium'
+                                    : 'text-gray-700 hover:text-blue-600 '
                                     }`}
                             >
                                 {link.name}
@@ -71,7 +72,7 @@ export default function Navbar() {
 
             {isOpen && (
                 <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white ">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}

@@ -1,6 +1,7 @@
 import { UseFormRegister, Control, useFieldArray } from 'react-hook-form';
 import { formInput } from '../../types/global';
 import Input from '../ui/Input';
+import { Trash2 } from 'lucide-react';
 
 export const ItemList = ({ register, control }: { register: UseFormRegister<formInput>, control: Control<formInput> }) => {
     const { fields, append, remove } = useFieldArray({ control, name: "items" });
@@ -9,7 +10,7 @@ export const ItemList = ({ register, control }: { register: UseFormRegister<form
         <section>
             <h2 className='text-lg font-semibold mb-3'>Items</h2>
             {fields.map((field, index) => (
-                <div key={field.id} className='space-y-3 border-b pb-4 mb-4'>
+                <div key={field.id} className='space-y-3  pb-4 mb-4'>
                     <Input placeholder='Product Name' {...register(`items.${index}.description`)} />
                     <div className='flex gap-4 flex-col md:flex-row'>
                         <div className='w-full  flex flex-col gap-2'>
@@ -27,13 +28,13 @@ export const ItemList = ({ register, control }: { register: UseFormRegister<form
 
                                 disabled={fields.length <= 1}
                                 onClick={() => remove(index)}
-                                className={`text-white font-bold text-xl py-1.5 rounded-lg w-full transition-colors
+                                className={` border border-gray-400 font-bold text-xl p-2.5 rounded-lg w-full transition-colors flex items-center justify-center 
                                  ${fields.length <= 1
-                                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                                        : "bg-red-500 hover:bg-red-600 cursor-pointer"
+                                        ? " text-gray-700 cursor-not-allowed"
+                                        : "text-red-700 cursor-pointer"
                                     }`}
                             >
-                                ✕
+                                <Trash2 width={18} height={20} />
                             </button>
                         </div>
                     </div>

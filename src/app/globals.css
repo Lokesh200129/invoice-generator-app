@@ -10,9 +10,14 @@
   }
 }
 
+body {
+  font-family: var(--font-montserrat);
+}
+
 @media print {
   body * {
     visibility: hidden;
+
   }
 
   .printable-area,
