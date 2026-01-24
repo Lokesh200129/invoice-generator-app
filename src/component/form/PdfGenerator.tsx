@@ -13,8 +13,8 @@ const PdfGenerator = ({ invoice, isEmpty }: PdfProp) => {
         <div>
             <PDFDownloadLink
                 document={<InvoicePDF data={invoice!} />}
-                fileName={`invoice-${invoice?.invoiceNumber}.pdf`}
-                className="w-full md:w-1/3"
+                fileName={`East-Invoice-${invoice?.invoiceNumber}.pdf`}
+
             >
                 <button
                     type="button"

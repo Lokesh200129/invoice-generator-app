@@ -36,7 +36,7 @@ const InvoiceCard = () => {
     const tableHead = ['Description', 'QTY', 'Price', 'Total']
 
     return (
-        <div ref={invoiceRef} className='print-container p-8 w-full rounded-xl shadow-lg border border-gray-300 h-auto  capitalize sticky top-15  '>
+        <div ref={invoiceRef} className='print-container p-8 w-full rounded-xl shadow-lg border border-gray-300 h-auto  capitalize sticky top-18  '>
             <div className='flex justify-between items-start mb-10 pb-4 border-b-2 border-gray-400'>
                 <div >
                     <div className='w-20 h-20   rounded-lg flex items-center justify-center mb-4 text-gray-400'>

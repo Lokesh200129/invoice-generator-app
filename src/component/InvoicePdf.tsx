@@ -152,7 +152,8 @@ const InvoicePDF: React.FC<Props> = ({ data }) => {
         isSignInclude,
         items,
     } = data;
-    const displayCurrency = currency === '' ? 'Rs ' : currency;
+
+    const displayCurrency = currency === '₹' ? 'Rs ' : currency;
     const subtotal = items.reduce((sum, item) => sum + item.quantity * item.price, 0);
     const discountAmount = subtotal * (discountPercent / 100);
     const afterDiscount = subtotal - discountAmount;

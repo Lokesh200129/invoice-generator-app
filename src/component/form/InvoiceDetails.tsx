@@ -1,18 +1,18 @@
 import { UseFormRegister } from 'react-hook-form';
 import { formInput } from '../../types/global';
 import Input from '../ui/Input';
-
+import { toast } from 'react-toastify'
 interface InvoiceDetailsProps {
   register: UseFormRegister<formInput>;
 }
 
 export const InvoiceDetails = ({ register }: InvoiceDetailsProps) => {
-  // Helper for date picker support
+
   const handleDateClick = (e: React.MouseEvent<HTMLInputElement>) => {
     try {
       e.currentTarget.showPicker();
     } catch {
-      console.log("Picker not supported");
+      toast.error("Picker not supported");
     }
   };
 

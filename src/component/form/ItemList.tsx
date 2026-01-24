@@ -25,7 +25,7 @@ export const ItemList = ({ register, control }: { register: UseFormRegister<form
                             <label htmlFor=""></label>
                             <button
                                 type="button"
-
+                                title='Remove Item'
                                 disabled={fields.length <= 1}
                                 onClick={() => remove(index)}
                                 className={` border border-gray-400 font-bold text-xl p-2.5 rounded-lg w-full transition-colors flex items-center justify-center 
@@ -40,7 +40,7 @@ export const ItemList = ({ register, control }: { register: UseFormRegister<form
                     </div>
                 </div>
             ))}
-            <button type="button" className='w-full py-2 text-blue-800 bg-blue-50 cursor-pointer border border-gray-400 rounded-lg hover:bg-blue-200' onClick={() => append({ description: "", quantity: 0, price: 0 })}>
+            <button type="button" title='Add New Item' className='w-full py-2 text-blue-800 bg-blue-50 cursor-pointer border border-gray-400 rounded-lg hover:bg-blue-100' onClick={() => append({ description: "", quantity: 0, price: 0 })}>
                 + Add Item
             </button>
         </section>
