@@ -2,6 +2,7 @@ import { UseFormRegister, Control, useFieldArray } from 'react-hook-form';
 import { formInput } from '../../types/global';
 import Input from '../ui/Input';
 import { Trash2 } from 'lucide-react';
+import { Plus } from 'lucide-react'
 
 export const ItemList = ({ register, control }: { register: UseFormRegister<formInput>, control: Control<formInput> }) => {
     const { fields, append, remove } = useFieldArray({ control, name: "items" });
@@ -40,9 +41,12 @@ export const ItemList = ({ register, control }: { register: UseFormRegister<form
                     </div>
                 </div>
             ))}
-            <button type="button" title='Add New Item' className='w-full py-2 text-blue-800 bg-blue-50 cursor-pointer border border-gray-400 rounded-lg hover:bg-blue-100' onClick={() => append({ description: "", quantity: 0, price: 0 })}>
-                + Add Item
-            </button>
+            <div className='flex justify-end items-center'>
+                <button type="button" title='Add New Item' className='w-full md:w-1/3 py-2 text-blue-800 bg-blue-50 cursor-pointer border border-gray-400 rounded-lg hover:bg-blue-100 flex justify-center items-center gap-2' onClick={() => append({ description: "", quantity: 0, price: 0 })}>
+                    <Plus />
+                    Add Item
+                </button>
+            </div>
         </section>
     );
 };

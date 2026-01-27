@@ -35,9 +35,9 @@ const features = [
 
 const LandingPage = () => {
     return (
-        <div className=" bg-[#F8FAFC]">
+        <div >
             {/* Hero Section */}
-            <div className="w-full mx-auto px-6 pt-16 pb-20">
+            <div className="w-full mx-auto px-6 pt-16 pb-20 ">
                 <div className="text-center">
                     <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-1 shadow-sm mb-6">
                         <span className="text-emerald-500 text-xl">📄</span>
@@ -53,12 +53,14 @@ const LandingPage = () => {
                         and schools. No sign-up. No ads. Just fill, download, and send.
                     </p>
 
-                    <Link href={'/invoice-generator'} className="flex items-center justify-center gap-4 mt-10">
-                        <button className="bg-blue-600 text-white px-8 py-3.5 rounded-xl font-medium hover:bg-blue-700 transition-all flex items-center gap-2 shadow-lg shadow-blue-200" >
-                            Create Invoice Now
-                            <MoveRight />
-                        </button>
-                    </Link>
+                    <div className="flex items-center justify-center gap-4 mt-10">
+                        <Link href={'/invoice-generator'}>
+                            <button className="bg-blue-600 text-white cursor-pointer px-8 py-3.5 rounded-xl font-medium hover:bg-blue-700 transition-all flex items-center gap-2 shadow-lg shadow-blue-200" >
+                                Create Invoice Now
+                                <MoveRight />
+                            </button>
+                        </Link>
+                    </div>
 
                     <p className="text-slate-500 text-sm mt-4">No credit card required • Free forever</p>
                 </div>
@@ -101,14 +103,14 @@ const LandingPage = () => {
                         Join thousands of users who generate invoices in seconds.
                     </p>
                     <Link href={'/invoice-generator'}>
-                        <button className="bg-emerald-600 text-white px-10 py-4 rounded-2xl font-medium hover:bg-emerald-700 transition-colors text-lg shadow-lg shadow-emerald-100 flex items-center justify-center gap-2">
+                        <button className="bg-emerald-600 text-white cursor-pointer px-10 py-4 rounded-2xl font-medium hover:bg-emerald-700 transition-colors text-lg shadow-lg shadow-emerald-100 flex items-center justify-center gap-2">
                             Start Creating Invoices
                             <MoveRight />
                         </button>
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

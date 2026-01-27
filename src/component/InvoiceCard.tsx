@@ -106,11 +106,11 @@ const InvoiceCard = () => {
                     </div>
                     <div className='flex justify-between text-sm text-gray-600'>
                         <span>Discount ({(discount > 0 ? discount : 0)} %)</span>
-                        <span className='font-medium'>{currency} {currencyFormat(discountedPrice)}</span>
+                        <span className='font-medium'>- {currency} {currencyFormat(discountedPrice)}</span>
                     </div>
                     <div className='flex justify-between text-sm text-gray-600'>
                         <span>Tax ({(tax > 0 ? tax : 0)} %)</span>
-                        <span className='font-medium'>{currency} {currencyFormat(calculatedTax)}</span>
+                        <span className='font-medium'>+  {currency} {currencyFormat(calculatedTax)}</span>
                     </div>
                     <div className='border-t-2 border-gray-400 pt-3 flex justify-between items-center'>
                         <span className='font-bold text-gray-800 text-lg'>Total</span>
